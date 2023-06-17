@@ -1,3 +1,27 @@
+// Código existente...
+
+// Después de que se haya completado el registro exitosamente
+// Puedes agregar esto dentro de la función donde se realiza el registro
+// o en el lugar adecuado según tu implementación.
+
+// Aquí se muestra un ejemplo básico usando Firebase Auth
+firebase.auth().createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Registro exitoso
+    // Realizar acciones adicionales si es necesario
+
+    // Recargar la página después de 1 segundo
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  })
+  .catch((error) => {
+    // Manejar errores de registro
+    console.log(error);
+  });
+
+// Código existente...
+
 let app = document.getElementById('typewriter');
  
 let typewriter = new Typewriter(app, {
