@@ -1,3 +1,4 @@
+import { auth } from './app/firebase.js';
 import { loginCheck } from "./app/loginCheck.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
