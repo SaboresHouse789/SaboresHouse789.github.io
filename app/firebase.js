@@ -23,5 +23,6 @@ apiKey: "AIzaSyDnhtgMB_BZ6siMX2ti_54Jt3t9AdOBKIs",
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app)
+  const app = initializeApp(firebaseConfig);
+
+  const analytics = getAnalytics(app);
