@@ -22,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 // Código existente...
-import { firebase} from './app/firebase.js';
+
 // Después de que se haya completado el registro exitosamente
 // Puedes agregar esto dentro de la función donde se realiza el registro
 // o en el lugar adecuado según tu implementación.
