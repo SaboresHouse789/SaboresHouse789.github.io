@@ -1,20 +1,17 @@
-const { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+const { initializeApp } = require("https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js");
+const { getAnalytics } = require("https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js");
+const auth = require('./app/firebase.js');
+const { setupPosts } = require("./app/postList.js");
+const { onAuthStateChanged } = require("https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js");
+const { getDocs, collection } = require("https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js");
 
-const { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-
-const{ auth } from './app/firebase.js';
-
-const { setupPosts } from "./app/postList.js";
-const{ onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-const { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
-import './app/signupForm.js';
-import './app/signinForm.js';
-import './app/googleLogin.js';
-import './app/facebookLogin.js';
-import './app/githubLogin.js';
-import './app/logout.js';
-import './app/postList.js';
+require('./app/signupForm.js');
+require('./app/signinForm.js');
+require('./app/googleLogin.js');
+require('./app/facebookLogin.js');
+require('./app/githubLogin.js');
+require('./app/logout.js');
+require('./app/postList.js');
 
 // Código existente...
 
