@@ -10,6 +10,7 @@ import './app/googleLogin.js';
 import './app/facebookLogin.js';
 import './app/githubLogin.js';
 import './app/logout.js';
+import './app/firebase.js';
 import './app/postList.js';
 // Aquí se muestra un ejemplo básico usando Firebase Auth
 auth.createUserWithEmailAndPassword(email, password)
