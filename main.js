@@ -37,7 +37,6 @@ typewriter
   .start();
 
 import { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
-import { auth, db } from "./app/firebase.js";
 import { loginCheck } from "./app/loginCheck.js";
 import { setupPosts } from "./app/postList.js";
 
