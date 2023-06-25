@@ -1,4 +1,3 @@
-import { initializeApp } from "firebase/app";
 import { loginCheck } from "./app/loginCheck.js";
 import { auth } from './app/firebase.js';
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
