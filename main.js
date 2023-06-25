@@ -1,6 +1,8 @@
 import { loginCheck } from "./app/loginCheck.js";
-import { auth, db } from './firebase.js';
+import { auth } from './firebase.js';
 import { setupPosts } from "./app/postList.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+import { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js";
 
 import './app/signupForm.js';
 import './app/signinForm.js';
@@ -9,6 +11,7 @@ import './app/facebookLogin.js';
 import './app/githubLogin.js';
 import './app/logout.js';
 import './app/postList.js';
+
 // Código existente...
 
 // Después de que se haya completado el registro exitosamente
@@ -34,20 +37,18 @@ auth.createUserWithEmailAndPassword(email, password)
 // Código existente...
 
 let app = document.getElementById('typewriter');
- 
+
 let typewriter = new Typewriter(app, {
   loop: true,
   delay: 75,
 });
- 
+
 typewriter
   .pauseFor(2500)
   .typeString('La Capital del Sol')
   .pauseFor(200)
   .deleteChars(10)
   .start();
-
-
 
 // Escuchar cambios en el estado de autenticación
 onAuthStateChanged(auth, async (user) => {
