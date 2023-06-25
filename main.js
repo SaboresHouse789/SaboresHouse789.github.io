@@ -1,10 +1,8 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-import { auth } from './app/firebase.js';
-import { setupPosts } from "./app/postList.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { getDocs, collection } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
+// Código existente...
+import { firebase} from './app/firebase.js';
+// Después de que se haya completado el registro exitosamente
+// Puedes agregar esto dentro de la función donde se realiza el registro
+// o en el lugar adecuado según tu implementación.
 import './app/signupForm.js';
 import './app/signinForm.js';
 import './app/googleLogin.js';
@@ -12,13 +10,6 @@ import './app/facebookLogin.js';
 import './app/githubLogin.js';
 import './app/logout.js';
 import './app/postList.js';
-
-// Código existente...
-
-// Después de que se haya completado el registro exitosamente
-// Puedes agregar esto dentro de la función donde se realiza el registro
-// o en el lugar adecuado según tu implementación.
-
 // Aquí se muestra un ejemplo básico usando Firebase Auth
 auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
@@ -37,9 +28,9 @@ auth.createUserWithEmailAndPassword(email, password)
 
 // Código existente...
 
-let app = document.getElementById('typewriter');
+let appElement = document.getElementById('typewriter');
 
-let typewriter = new Typewriter(app, {
+let typewriter = new Typewriter(appElement, {
   loop: true,
   delay: 75,
 });
@@ -56,6 +47,7 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
     loginCheck(user);
     try {
+      // Obtener los documentos de la colección "posts"
       const querySnapshot = await getDocs(collection(db, "posts"));
       setupPosts(querySnapshot.docs);
     } catch (error) {
