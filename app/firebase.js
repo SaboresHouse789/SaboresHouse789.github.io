@@ -3,8 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebas
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
 
 import { auth } from './app/firebase.js';
-import { getAuth } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js"
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-firestore.js"
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"
 
 const firebaseConfig = {
   // Paste your firebase config here
