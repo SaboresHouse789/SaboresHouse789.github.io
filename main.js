@@ -1,7 +1,5 @@
 import { loginCheck } from "./app/loginCheck.js";
-
-import { auth } from './firebase.js';
-
+import { auth, db } from './firebase.js';
 import { setupPosts } from "./app/postList.js";
 
 import './app/signupForm.js';
@@ -18,7 +16,7 @@ import './app/postList.js';
 // o en el lugar adecuado según tu implementación.
 
 // Aquí se muestra un ejemplo básico usando Firebase Auth
-firebase.auth().createUserWithEmailAndPassword(email, password)
+auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
     // Registro exitoso
     // Realizar acciones adicionales si es necesario
@@ -51,7 +49,7 @@ typewriter
 
 
 
-// list for auth state changes
+// Escuchar cambios en el estado de autenticación
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     loginCheck(user);
