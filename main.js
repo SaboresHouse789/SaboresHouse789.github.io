@@ -1,3 +1,4 @@
+import { loginCheck } from "./app/loginCheck.js";
 import { auth } from './app/firebase.js';
 
 import { setupPosts } from "./app/postList.js";
