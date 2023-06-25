@@ -18,3 +18,4 @@ signUpForm.addEventListener("submit", async (e) => {
     console.log(error);
   }
 });
+ 
