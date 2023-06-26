@@ -1,5 +1,7 @@
-import { getAuth,getFirestore} from "../lib/conexiondb"
-
+import { getAuth, 
+  getFirestore} 
+from "../lib/conexiondb"
+import { logout} from "./loginCheck";
 
 const logout = document.querySelector("#logout");
 
