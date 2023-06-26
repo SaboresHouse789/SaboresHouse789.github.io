@@ -1,7 +1,4 @@
 // Código existente...
-importScripts = './app/init.js';
-
-
 // Después de que se haya completado el registro exitosamente
 // Puedes agregar esto dentro de la función donde se realiza el registro
 // o en el lugar adecuado según tu implementación.
