@@ -1,3 +1,4 @@
+<script src="main.js" type="module"></script>
 // Código existente...
 import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./firebase";
