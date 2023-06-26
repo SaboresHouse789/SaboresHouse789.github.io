@@ -1,26 +1,31 @@
 // Código existente...
-importScripts = './app/init.js';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "./firebase";
+import { getDocs, collection } from "firebase/firestore";
+import Typewriter from "typewriter-effect/dist/core";
 
-
-// Después de que se haya completado el registro exitosamente
+// Código existente...
+// Aquí debes tener una función o evento que maneje el registro de usuario
 // Puedes agregar esto dentro de la función donde se realiza el registro
 // o en el lugar adecuado según tu implementación.
 
 // Aquí se muestra un ejemplo básico usando Firebase Auth
-auth.createUserWithEmailAndPassword(email, password)
-  .then((userCredential) => {
-    // Registro exitoso
-    // Realizar acciones adicionales si es necesario
+const registerUser = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Registro exitoso
+      // Realizar acciones adicionales si es necesario
 
-    // Recargar la página después de 1 segundo
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
-  })
-  .catch((error) => {
-    // Manejar errores de registro
-    console.log(error);
-  });
+      // Recargar la página después de 1 segundo
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    })
+    .catch((error) => {
+      // Manejar errores de registro
+      console.log(error);
+    });
+};
 
 // Código existente...
 
@@ -54,3 +59,4 @@ onAuthStateChanged(auth, async (user) => {
     loginCheck(user);
   }
 });
+
