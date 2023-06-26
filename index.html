@@ -11,9 +11,6 @@
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
 
-  <!-- Bootstrap Css navbar -->
-  <!-- BOOSTRAP CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
   <!-- Toastify CSS -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <link rel="stylesheet" href="./main.css">
@@ -25,53 +22,12 @@
   </style>
   <title>SaboresHouse</title>
   <!-- Scripts firebase init.js-->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js" async></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js" async></script>
 
 </head>
 
 <body>
-  <!DOCTYPE html>
-<html>
-<head>
-    <title>Mi página web</title>
-    <style>
-        /* Estilos CSS personalizados */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F0F0F0;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h1 {
-            color: #333333;
-            margin-bottom: 20px;
-        }
-
-        p {
-            color: #666666;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #FFFFFF;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Bienvenido a mi página web</h1>
-        <p>Esta es una página web de ejemplo.</p>
-    </div>
-</body>
-</html>
-
   <!--========================================================== -->
   <!-- ENCABEZADO -->
   <!--========================================================== -->
@@ -79,7 +35,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
     <div class="container-fluid">
-      <a class="navbar-brand">
+      <a class="navbar-brand" href="#">
         <h1 class="display-4 fst-italic text-decoration-underline rounded-pill">
           Sabores House <img src="img/logo.png" alt="logo" width="65" height="75" class="d-inline-block align-text-top"></h1>
       </a>
@@ -93,8 +49,6 @@
           <a class="nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Signin</a>
           <a class="nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</a>
           <a class="nav-link logged-in" href="#" id="logout">Logout</a>
-          <!-- Aquí puedes agregar el botón de registro -->
-          <button id="signup-button">Registro</button>
         </div>
       </div>
     </div>
