@@ -7,9 +7,6 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
 
-</head>
-<body>
-
   <!-- Configuración de Firebase -->
   <script>
     // Your web app's Firebase configuration
@@ -22,12 +19,15 @@
       messagingSenderId: "42245565592",
       appId: "1:42245565592:web:9bf287743dc96c8c3734ed",
       measurementId: "G-87B5870XV6"
+
     };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  const analytics = firebase.analytics();
-</script>
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics();
+  </script>
+</head>
+<body>
 
   <!-- Register Button -->
   <button onclick="registrarse()">Registrarse</button>
@@ -81,12 +81,4 @@
           // Cierre de sesión exitoso, puedes realizar acciones adicionales si lo deseas
           console.log('Cierre de sesión exitoso');
         })
-        .catch((error) => {
-          // Ocurrió un error durante el cierre de sesión
-          console.log('Error en el cierre de sesión:', error.message);
-        });
-    }
-  </script>
-
-</body>
-</html>
+        .catch((
