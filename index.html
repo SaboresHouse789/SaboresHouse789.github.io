@@ -6,52 +6,27 @@
 <body>
 
   <!-- Firebase SDK -->
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
 
+  <!-- Configuración de Firebase -->
+  <script>
     // Your web app's Firebase configuration
     const firebaseConfig = {
-      // Aquí va la configuración de tu proyecto Firebase
+      apiKey: "AIzaSyDnhtgMB_BZ6siMX2ti_54Jt3t9AdOBKIs",
+      authDomain: "sabores-house.firebaseapp.com",
+      databaseURL: "https://sabores-house-default-rtdb.firebaseio.com",
+      projectId: "sabores-house",
+      storageBucket: "sabores-house.appspot.com",
+      messagingSenderId: "42245565592",
+      appId: "1:42245565592:web:9bf287743dc96c8c3734ed",
+      measurementId: "G-87B5870XV6"
     };
 
     // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth(app);
-
-  <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
-
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-apiKey: "AIzaSyDnhtgMB_BZ6siMX2ti_54Jt3t9AdOBKIs",
-
-authDomain: "sabores-house.firebaseapp.com",
-
-databaseURL: "https://sabores-house-default-rtdb.firebaseio.com",
-
-projectId: "sabores-house",
-
-storageBucket: "sabores-house.appspot.com",
-
-messagingSenderId: "42245565592",
-
-appId: "1:42245565592:web:9bf287743dc96c8c3734ed",
-
-measurementId: "G-87B5870XV6"
-
-
-
-    };
-
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    firebase.initializeApp(firebaseConfig);
+    const analytics = firebase.analytics();
   </script>
 
   <!-- Register Button -->
@@ -65,57 +40,53 @@ measurementId: "G-87B5870XV6"
 
   <!-- JavaScript Functions -->
   <script>
-function registrarse() {
-  // Obtener el email y la contraseña ingresados por el usuario
-  const email = prompt('Ingrese su email:');
-  const password = prompt('Ingrese su contraseña:');
+    function registrarse() {
+      // Obtener el email y la contraseña ingresados por el usuario
+      const email = prompt('Ingrese su email:');
+      const password = prompt('Ingrese su contraseña:');
 
-  // Crear un nuevo usuario utilizando Firebase Authentication
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Registro exitoso, puedes realizar acciones adicionales si lo deseas
-      console.log('Registro exitoso');
-    })
-    .catch((error) => {
-      // Ocurrió un error durante el registro
-      console.log('Error en el registro:', error.message);
-    });
-}
+      // Crear un nuevo usuario utilizando Firebase Authentication
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Registro exitoso, puedes realizar acciones adicionales si lo deseas
+          console.log('Registro exitoso');
+        })
+        .catch((error) => {
+          // Ocurrió un error durante el registro
+          console.log('Error en el registro:', error.message);
+        });
+    }
 
+    function iniciarSesion() {
+      // Obtener el email y la contraseña ingresados por el usuario
+      const email = prompt('Ingrese su email:');
+      const password = prompt('Ingrese su contraseña:');
 
-function iniciarSesion() {
-  // Obtener el email y la contraseña ingresados por el usuario
-  const email = prompt('Ingrese su email:');
-  const password = prompt('Ingrese su contraseña:');
+      // Iniciar sesión utilizando Firebase Authentication
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Inicio de sesión exitoso, puedes realizar acciones adicionales si lo deseas
+          console.log('Inicio de sesión exitoso');
+        })
+        .catch((error) => {
+          // Ocurrió un error durante el inicio de sesión
+          console.log('Error en el inicio de sesión:', error.message);
+        });
+    }
 
-  // Iniciar sesión utilizando Firebase Authentication
-  firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userCredential) => {
-      // Inicio de sesión exitoso, puedes realizar acciones adicionales si lo deseas
-      console.log('Inicio de sesión exitoso');
-    })
-    .catch((error) => {
-      // Ocurrió un error durante el inicio de sesión
-      console.log('Error en el inicio de sesión:', error.message);
-    });
-}
-
-
-function cerrarSesion() {
-  // Cerrar sesión utilizando Firebase Authentication
-  firebase.auth().signOut()
-    .then(() => {
-      // Cierre de sesión exitoso, puedes realizar acciones adicionales si lo deseas
-      console.log('Cierre de sesión exitoso');
-    })
-    .catch((error) => {
-      // Ocurrió un error durante el cierre de sesión
-      console.log('Error en el cierre de sesión:', error.message);
-    });
-}
-
+    function cerrarSesion() {
+      // Cerrar sesión utilizando Firebase Authentication
+      firebase.auth().signOut()
+        .then(() => {
+          // Cierre de sesión exitoso, puedes realizar acciones adicionales si lo deseas
+          console.log('Cierre de sesión exitoso');
+        })
+        .catch((error) => {
+          // Ocurrió un error durante el cierre de sesión
+          console.log('Error en el cierre de sesión:', error.message);
+        });
+    }
   </script>
 
 </body>
 </html>
-
