@@ -2,21 +2,3 @@ body {
   background: #202020;
   color: white;
 }
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-  line-height: 1.5;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Agrega más reglas CSS según tus necesidades */
