@@ -27,10 +27,6 @@
   </script>
 </head>
 <body>
-</body>
-</html>
-
-
   <!-- Register Button -->
   <button onclick="registrarse()">Registrarse</button>
 
@@ -83,4 +79,11 @@
           // Cierre de sesión exitoso, puedes realizar acciones adicionales si lo deseas
           console.log('Cierre de sesión exitoso');
         })
-        .catch((
+        .catch((error) => {
+          // Ocurrió un error durante el cierre de sesión
+          console.log('Error en el cierre de sesión:', error.message);
+        });
+    }
+  </script>
+</body>
+</html>
