@@ -17,5 +17,3 @@ firebase.initializeApp({
     measurementId: "G-87B5870XV6"
 
   });
-
-  

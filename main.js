@@ -1,16 +1,11 @@
-
 // Código existente...
-import './app/firebase.js';
+import './app/init.js';
+
+
 // Después de que se haya completado el registro exitosamente
 // Puedes agregar esto dentro de la función donde se realiza el registro
 // o en el lugar adecuado según tu implementación.
-import './app/signupForm.js';
-import './app/signinForm.js';
-import './app/googleLogin.js';
-import './app/facebookLogin.js';
-import './app/githubLogin.js';
-import './app/logout.js';
-import './app/postList.js';
+
 // Aquí se muestra un ejemplo básico usando Firebase Auth
 auth.createUserWithEmailAndPassword(email, password)
   .then((userCredential) => {
