@@ -1,5 +1,5 @@
 // Código existente...
-import './app/init.js';
+importScripts = './app/init.js';
 
 
 // Después de que se haya completado el registro exitosamente
