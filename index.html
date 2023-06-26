@@ -1,3 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script type="module" src="app/init.js"></script>
+    <script type="module" src="app/init.js"></script>
+    <!--
+    Carga el núcleo de Firebase
+    JS SDK
+  -->
+  <script
+  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js">
+  </script>
+<!--
+  Agrega el manejo de
+  autenticación.
+-->
+<script
+  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js">
+  </script>
+<!--
+  Agrega el manejo de bases de
+  datos.
+-->
+<script
+  src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js">
+  </script>
+<!--
+  Configura la app usando la
+  información del sitio de
+  Firebase.
+-->
+<script src="js/init.js">
+</script>
+<script type="module"
+  src="cmp/mi-nav.js">
+  </script>
+<script type="module"
+  src="cmp/mi-footer.js">
+  </script>
+<script type="module"
+  src="cmp/mi-progreso.js">
+  </script>
+<link rel="stylesheet"
+  href="css/estilos.css">
+</head>
+<body>
+    
+</body>
+</html>
+
+ARCHIVO INDEX.HTML
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +69,12 @@
     <!-- Toastify CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="./main.css">
-    
+    <style>
+    .card:hover img {
+      transform: scale(1.1);
+      transition: transform 0.3s ease;
+    }
+  </style>
     <title>SaboresHouse</title>
 </head>
     <body>
@@ -238,35 +297,59 @@
         <div>
             <div class="wrapper-local">
                 <h2>Ubicado en Miami, Florida</h2>
+
+                   <!--========================================================== -->
                     <!-- List group -->
-                  <div class="row">
-                  <div class="col-4">
-                    <div class="list-group bg-dark" id="list-tab" role="tablist">
-                      <a class="list-group-item list-group-item-action active text-white bg-dark" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Habitaciones sencillas</a>
-                      <a class="list-group-item list-group-item-action active text-white bg-dark" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile"class="rounded-5">Habitaciones dobles</a>
-                      <a class="list-group-item list-group-item-action active text-white bg-dark" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages"class="rounded-5">King</a>
-                      <a class="list-group-item list-group-item-action active text-white bg-dark" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="list-settings"class="rounded-5">Suites</a>
-                    </div>
-                  </div>
-                    
-                    <!-- Tab panes -->
-                    <div class="col-8">
-                      <div class="tab-content" id="nav-tabContent">
-                      <div class="tab-pane fade  show active bg-dark text-white" id="list-home"     role="tabpanel" aria-labelledby="list-messages-list">
-                        <p class="display-1">Habitacion sencilla</p>  
-                        <p class="display-6"><em>Nuestras habitaciones sencillas ofrecen una opción cómoda y asequible para los huéspedes individuales. Los precios para las habitaciones sencillas comienzan desde $80 por noche, dependiendo de la temporada y los servicios adicionales solicitados.                                                                                  <img src="./img/sencilla.jpg" class="d-flex justify-content-center" alt="seo" ></em></p></div>
-                      <div class="tab-pane fade  show active bg-dark text-white" id="list-profile"  role="tabpanel" aria-labelledby="list-messages-list">
-                        <p class="display-1">Habitacion Doble</p>  
-                        <p class="display-6"><em>Nuestras habitaciones dobles son ideales para parejas o viajeros que prefieren tener más espacio. Los precios para las habitaciones dobles varían entre $100 y $150 por noche, según la temporada, la duración de la estancia y los servicios adicionales solicitados.                                                                  <img src="./img/doble.png"    class="d-flex justify-content-center" alt="seo" ></em></p></div>
-                      <div class="tab-pane fade  show active bg-dark text-white" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
-                        <p class="display-1">Habitacion King</p>  
-                        <p class="display-6"><em>Disfrute de una experiencia de lujo en nuestras amplias habitaciones King. Los precios para las habitaciones King comienzan desde $150 por noche y pueden llegar hasta $250, dependiendo de la temporada, la duración de la estancia y los servicios adicionales solicitados.                                                           <img src="./img/king.jpg"     class="d-flex justify-content-center" alt="seo"  ></em></p> </div>
-                      <div class="tab-pane fade  show active bg-dark text-white" id="list-settings" role="tabpanel" aria-labelledby="list-messages-list">
-                        <p class="display-1">Suite</p>  
-                        <p class="display-6"><em>Sumérjase en la opulencia de nuestras suites, que ofrecen un alojamiento de primer nivel y comodidades excepcionales. Los precios para las suites varían entre $250 y $400 por noche, según la temporada, el tamaño de la suite y los servicios adicionales incluidos, como bañeras de hidromasaje, salas de estar o balcones privados. <img src="./img/suite.jpg"    class="d-flex justify-content-center" alt="seo" ></em></p></div>
+                   <!--========================================================== -->
+                 <div class="container">
+                      <h1>Selector de Paquetes</h1>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <div class="card">
+                            <img src="./img/sencilla.jpg" class="card-img-top" alt="Habitación sencilla">
+                            <div class="card-body bg-dark">
+                              <h5 class="card-title">Habitación sencilla</h5>
+                              <p class="card-text">Nuestras habitaciones sencillas ofrecen una opción cómoda y asequible para los huéspedes individuales. Los precios para las habitaciones sencillas comienzan desde $80 por noche, dependiendo de la temporada y los servicios adicionales solicitados..</p>
+                              <p class="card-text">Precio: $80</p>
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <div class="col-md-3">
+                          <div class="card">
+                            <img src="./img/doble.png" class="card-img-top" alt="Habitación doble">
+                            <div class="card-body bg-dark">
+                              <h5 class="card-title">Habitación doble</h5>
+                              <p class="card-text">Nuestras habitaciones dobles son ideales para parejas o viajeros que prefieren tener más espacio. Los precios para las habitaciones dobles varían entre $100 y $150 por noche, según la temporada, la duración de la estancia y los servicios adicionales solicitados. </p>
+                              <p class="card-text">Precio: $150</p>
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <div class="col-md-3">
+                          <div class="card">
+                            <img src="./img/king.jpg" class="card-img-top" alt="Habitación King">
+                            <div class="card-body bg-dark">
+                              <h5 class="card-title">Habitación King</h5>
+                              <p class="card-text">Disfrute de una experiencia de lujo en nuestras amplias habitaciones King. Los precios para las habitaciones King comienzan desde $150 por noche y pueden llegar hasta $250, dependiendo de la temporada, la duración de la estancia y los servicios adicionales solicitados.</p>
+                              <p class="card-text">Precio: $250</p>
+                            </div>
+                          </div>
+                        </div>
+                  
+                        <div class="col-md-3">
+                          <div class="card">
+                            <img src="./img/suite.jpg" class="card-img-top" alt="Suite">
+                            <div class="card-body bg-dark">
+                              <h5 class="card-title">Suite</h5>
+                              <p class="card-text">Sumérjase en la opulencia de nuestras suites, que ofrecen un alojamiento de primer nivel y comodidades excepcionales. Los precios para las suites varían entre $250 y $400 por noche, según la temporada, el tamaño de la suite y los servicios adicionales incluidos, como bañeras de hidromasaje, salas de estar o balcones privados.</p>
+                              <p class="card-text">Precio: $400</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                 
-
                 
                   
                   </div>
@@ -275,13 +358,7 @@
                 
                 
                 
-                </div>
-
-              </section>
-            </div>
-        </div>
-    </div>
-
+          
 </section>
 
 
