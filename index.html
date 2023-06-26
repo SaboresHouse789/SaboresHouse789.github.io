@@ -7,31 +7,54 @@
 
   <h1>Bienvenido a Mi Sitio Web</h1>
 
-  <!-- Agrega el botón de inicio de sesión -->
+  <!-- Botón de registro -->
+  <button onclick="registrarse()">Registrarse</button>
+
+  <!-- Botón de inicio de sesión -->
   <button onclick="iniciarSesion()">Iniciar sesión</button>
 
+  <!-- Botón de cierre de sesión -->
+  <button onclick="cerrarSesion()">Cerrar sesión</button>
+
   <!-- Agrega el SDK de Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
 
-  <script>
     // Your web app's Firebase configuration
-    var firebaseConfig = {
-  apiKey: "AIzaSyDnhtgMB_BZ6siMX2ti_54Jt3t9AdOBKIs",
-
-  authDomain: "sabores-house.firebaseapp.com",
-  databaseURL: "https://sabores-house-default-rtdb.firebaseio.com",
-  projectId: "sabores-house",
-  storageBucket: "sabores-house.appspot.com",
-  messagingSenderId: "42245565592",
-  appId: "1:42245565592:web:9bf287743dc96c8c3734ed",
-  measurementId: "G-87B5870XV6"
-
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyDnhtgMB_BZ6siMX2ti_54Jt3t9AdOBKIs",
+      authDomain: "sabores-house.firebaseapp.com",
+      databaseURL: "https://sabores-house-default-rtdb.firebaseio.com",
+      projectId: "sabores-house",
+      storageBucket: "sabores-house.appspot.com",
+      messagingSenderId: "42245565592",
+      appId: "1:42245565592:web:9bf287743dc96c8c3734ed",
+      measurementId: "G-87B5870XV6"
     };
 
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    var analytics = firebase.analytics();
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    // Función para registrarse
+    function registrarse() {
+      // Crea un objeto de autenticación de Firebase
+      var auth = firebase.auth();
+
+      // Muestra la ventana de registro
+      auth.createUserWithEmailAndPassword("correo@example.com", "contraseña123")
+        .then(function(userCredential) {
+          // El usuario se registró correctamente
+          console.log("Usuario registrado:", userCredential.user);
+        })
+        .catch(function(error) {
+          // Ocurrió un error al registrarse
+          console.error("Error al registrarse:", error);
+        });
+    }
 
     // Función para iniciar sesión
     function iniciarSesion() {
@@ -39,18 +62,34 @@
       var auth = firebase.auth();
 
       // Muestra la ventana de inicio de sesión
-      auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .then(function(result) {
+      auth.signInWithEmailAndPassword("correo@example.com", "contraseña123")
+        .then(function(userCredential) {
           // El usuario ha iniciado sesión correctamente
-          console.log("Usuario autenticado:", result.user);
+          console.log("Usuario autenticado:", userCredential.user);
         })
         .catch(function(error) {
           // Ocurrió un error al iniciar sesión
           console.error("Error al iniciar sesión:", error);
         });
     }
+
+    // Función para cerrar sesión
+    function cerrarSesion() {
+      // Crea un objeto de autenticación de Firebase
+      var auth = firebase.auth();
+
+      // Cierra la sesión actual
+      auth.signOut()
+        .then(function() {
+          // El usuario ha cerrado sesión correctamente
+          console.log("Sesión cerrada");
+        })
+        .catch(function(error) {
+          // Ocurrió un error al cerrar sesión
+          console.error("Error al cerrar sesión:", error);
+        });
+    }
   </script>
 
 </body>
 </html>
-
