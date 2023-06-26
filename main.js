@@ -1,41 +1,56 @@
-// Import the functions you need from the SDKs you need
-
-import { initializeApp } from "firebase/app";
-
-import { getAnalytics } from "firebase/analytics";
-
-// TODO: Add SDKs for Firebase products that you want to use
-
-// https://firebase.google.com/docs/web/setup#available-libraries
+// Código existente...
+importScripts = './app/init.js';
 
 
-// Your web app's Firebase configuration
+// Después de que se haya completado el registro exitosamente
+// Puedes agregar esto dentro de la función donde se realiza el registro
+// o en el lugar adecuado según tu implementación.
 
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Aquí se muestra un ejemplo básico usando Firebase Auth
+auth.createUserWithEmailAndPassword(email, password)
+  .then((userCredential) => {
+    // Registro exitoso
+    // Realizar acciones adicionales si es necesario
 
-const firebaseConfig = {
+    // Recargar la página después de 1 segundo
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  })
+  .catch((error) => {
+    // Manejar errores de registro
+    console.log(error);
+  });
 
-  apiKey: "AIzaSyDnhtgMB_BZ6siMX2ti_54Jt3t9AdOBKIs",
+// Código existente...
 
-  authDomain: "sabores-house.firebaseapp.com",
+let appElement = document.getElementById('typewriter');
 
-  databaseURL: "https://sabores-house-default-rtdb.firebaseio.com",
+let typewriter = new Typewriter(appElement, {
+  loop: true,
+  delay: 75,
+});
 
-  projectId: "sabores-house",
+typewriter
+  .pauseFor(2500)
+  .typeString('La Capital del Sol')
+  .pauseFor(200)
+  .deleteChars(10)
+  .start();
 
-  storageBucket: "sabores-house.appspot.com",
-
-  messagingSenderId: "42245565592",
-
-  appId: "1:42245565592:web:9bf287743dc96c8c3734ed",
-
-  measurementId: "G-87B5870XV6"
-
-};
-
-
-// Initialize Firebase
-
-const app = initializeApp(firebaseConfig);
-
-const analytics = getAnalytics(app);
+// Escuchar cambios en el estado de autenticación
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    loginCheck(user);
+    try {
+      // Obtener los documentos de la colección "posts"
+      const querySnapshot = await getDocs(collection(db, "posts"));
+      setupPosts(querySnapshot.docs);
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    setupPosts([]);
+    loginCheck(user);
+  }
+});
