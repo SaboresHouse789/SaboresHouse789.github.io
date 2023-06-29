@@ -101,82 +101,90 @@ ARCHIVO INDEX.HTML
           <li class="nav-item">
             <a class="nav-link" href="#seccion-contacto">Contactos</a>
           </li>
-<!--  -->
+<!--  botones-->
           
-        </ul>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav ms-auto">
-          <a class="nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Signin</a>
-          <a class="nav-link logged-out" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</a>
-          <a class="nav-link logged-in" href="#" id="logout">Logout</a>
-        </div>
+<div class="container">
+  <button id="login-button" class="login-button" onclick="showForm('login-section')">Signin</button>
+  <button id="register-button" class="register-button" onclick="showForm('register-section')">Signup</button>
+  <button id="google" class="register-button" onclick="google()">Registrarse con Google</button>
+</div>
+
+<div id="login-section" class="section" style="display: none;">
+  <h2>Iniciar sesión</h2>
+  <form>
+    <!-- Aquí van los campos de inicio de sesión (por ejemplo, nombre de usuario y contraseña) -->
+    <input type="user" placeholder="Nombre de usuario" id="username">
+    <input type="password" placeholder="Contraseña" id="password">
+    <button type="submit" onclick="login()">Enviar</button>
+  </form>
+</div>
+
+<div id="register-section" class="section" style="display: none;">
+  <h2>Registrarse</h2>
+  <form>
+    <!-- Aquí van los campos de registro (por ejemplo, nombre de usuario, correo electrónico y contraseña) -->
+    <input type="text" placeholder="Nombre de usuario" id="reg-username">
+    <input type="email" placeholder="Correo electrónico" id="email">
+    <input type="password" placeholder="Contraseña" id="reg-password">
+    <button type="submit" onclick="register()">Enviar</button>
+  </form>
+</div>
+
+<div>
+  <nav>
+    <div>
+      <a href="/">FireApp</a>
+      <div>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Signin</a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Signup</a>
+        <a href="#" id="logout">Logout</a>
       </div>
     </div>
   </nav>
 
-  <div class="container p-4">
-    <div class="row">
-      <div class="col-md-6 offset-md-3">
-        <ul class="list-group posts">
-        </ul>
+  <div>
+    <div>
+      <ul class="posts">
+      </ul>
+    </div>
+  </div>
+
+  <div id="signupModal" tabindex="-1" role="dialog">
+    <div>
+      <div>
+        <h3>SignUp</h3>
+        <button type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div>
+        <form id="signup-form">
+          <label for="email">Email:</label>
+          <input type="text" id="signup-email" required>
+          <label for="password">Password:</label>
+          <input type="password" id="signup-password" required>
+          <button type="submit">Save changes</button>
+        </form>
       </div>
     </div>
   </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content bg-dark">
-        <div class="modal-header">
-          <h3>SignUp</h3>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body p-5">
-          <form id="signup-form">
-
-            <label for="email">Email:</label>
-            <input type="text" id="signup-email" class="form-control mb-3" placeholder="Title" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="signup-password" class="form-control mb-3" placeholder="Password" required>
-
-            <button type="submit" class="btn btn-primary">Save changes</button>
-          </form>
-        </div>
+  <div id="signinModal" tabindex="-1" role="dialog">
+    <div>
+      <div>
+        <h3>SignIn</h3>
+        <button type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div>
+        <form id="login-form">
+          <label for="email">Email</label>
+          <input type="text" id="login-email" required>
+          <label for="password">Password:</label>
+          <input type="password" id="login-password" required>
+          <button type="submit">Login</button>
+        </form>
       </div>
     </div>
   </div>
-
-  <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalSignin"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content bg-dark">
-        <div class="modal-header">
-          <h3>SignIn</h3>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="login-form">
-            <label for="email">Email</label>
-            <input type="text" id="login-email" class="form-control mb-3" placeholder="Title" required>
-            <label for="password">Password:</label>
-            <input type="password" id="login-password" class="form-control mb-3" placeholder="Password" required>
-
-            <button type="submit" class="btn btn-success w-100 mb-4">Login</button>
-
-            <button type="button" class="btn btn-info" id="googleLogin">Google</button>
-
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
+</div>
 
     <!--========================================================== -->
                         <!-- SLIDER DE IMAGENES-->
